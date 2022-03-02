@@ -23,10 +23,10 @@ export default {
         {
           title: "This is a Filler Title!",
           blogHTML: "This is a filler blog post title!",
-          blogCoverPhoto: "beatiful-stories",
+          blogCoverPhoto: "beautiful-stories",
         },
         {
-          title: "This is a Filler Title!",
+          title: "This is a Filler Title2!",
           blogHTML: "This is a filler blog post title!",
           blogCoverPhoto: "designed-for-everyone",
         },
