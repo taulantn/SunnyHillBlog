@@ -46,7 +46,7 @@ export default {
         components: {
             youTube,
             twitter,
-            instagran,
+            instagram,
             linkedin,
         },        
 };
@@ -57,7 +57,7 @@ export default {
     footer {
         margin-top: auto;
         padding: 100px 25px;
-        background: linear-gradient(to left, #ff0344, #411447);
+        background: linear-gradient(to left, #b50632, #401047);
             .container {
             display: flex;
             flex-direction: column;
