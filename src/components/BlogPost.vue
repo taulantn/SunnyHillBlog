@@ -144,7 +144,7 @@ import Arrow from "../assets/Icons/arrow-right-light.svg"
 
 .no-user:first-child {
     .blog-content{
-        background-color: #303030;
+        background: linear-gradient(to left, #b50632, #401047);
         color: #ffff;
     }
 }
