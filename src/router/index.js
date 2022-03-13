@@ -10,11 +10,17 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home,
+    meta: {
+      title: 'Home'
+    },
   },
   {
     path: "/blogs",
     name: "Blogs",
     component: Blogs,
+    meta: {
+      title: "Blogs",
+    },
   },
 ];
 
@@ -24,4 +30,8 @@ const router = new VueRouter({
   routes,
 });
 
+router.beforeEach((to, from, next) => {
+  document.title = `${to.meta.title} | SunnyHill`;
+  next();
+});
 export default router;

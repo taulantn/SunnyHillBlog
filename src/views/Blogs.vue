@@ -3,7 +3,7 @@
       <div class="blog-cards container">
           <div class="toggle-edit">
               <span>Toggle Editing Post</span>
-              <input type="checkbox" v-model="editPost">
+              <input type="checkbox" v-model="editPost" />
           </div>
           <BlogCard :post="post" v-for="(post, index) in sampleBlogCards" :key="index" />
       </div>
@@ -19,7 +19,18 @@ export default {
         sampleBlogCards(){
             return this.$store.state.sampleBlogCards;
         },
+        editPost: {
+            get(){
+                return this.$store.state.editPost
+            },
+            set(payload){
+                this.$store.commit("toggleEditPost",payload);
+            }
+        }
     },
+    beforeDestroy(){
+        this.$store.commit("toggleEditPost",false);
+    }
 };
 </script>
 
@@ -36,7 +47,7 @@ export default {
         span{
             margin-right: 16px;
         }
-        input [type="checkbox"]{
+        input [type="checkbox"] {
         position: relative;
         border: none;
         -webkit-appearance: none;
@@ -45,9 +56,9 @@ export default {
         width: 80px;
         height: 30px;
         border-radius: 20px;
-        box-shadow: 0 4px 6px -1px Orgba (0, e, 0, e.1), 0 2px 4px -1px Orgba(0, e, 0, 0.06);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
-        input [type="checkbox"]:before {
+        input[type="checkbox"]:before {
         content: "";
         position: absolute;
         width: 30px;
@@ -55,13 +66,13 @@ export default {
         border-radius: 20px;
         top: 0;
         left: 0;
-        background: O#303030;
+        background: #303030;
         transform: scale(1.1);
         transition: 750ms ease all;
-        box-shadow: 0 4px 6px -1px Orgba (0, e, 0, 0.1), 0 2px 4px -1px Orgba (0, e, 0, 0.06);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
         input:checked[type="checkbox"]:before {
-        background: fff;
+        background: #fff;
         left: 52px;
         }
     }
