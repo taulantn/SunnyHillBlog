@@ -9,7 +9,7 @@
                   <router-link class="link" :to="{name: 'Home' }">Home</router-link>
                   <router-link class="link" :to="{ name: 'Blogs' }">Blogs</router-link>
                   <router-link class="link" to="#">Create Post</router-link>
-                  <router-link class="link" to="#">LogIn/Register</router-link>
+                  <router-link class="link" :to="{ name: 'Login' }">LogIn/Register</router-link>
               </ul>
           </div>
       </nav>
@@ -19,7 +19,7 @@
             <router-link class="link" :to="{name: 'Home'}">Home</router-link>
             <router-link class="link" :to="{ name: 'Blogs' }">Blogs</router-link>
             <router-link class="link" to="#">Create Post</router-link>
-            <router-link class="link" to="#">LogIn/Register</router-link>
+            <router-link class="link" :to="{ name: 'Login' }">LogIn/Register</router-link>
             </ul>
       </transition>
   </header>
