@@ -9,9 +9,9 @@
                   <router-link class="link" :to="{name: 'Home' }">Home</router-link>
                   <router-link class="link" :to="{ name: 'Blogs' }">Blogs</router-link>
                   <router-link class="link" to="#">Create Post</router-link>
-                  <router-link class="link" :to="{ name: 'Login' }">LogIn/Register</router-link>
+                  <router-link v-if="!user" class="link" :to="{ name: 'Login' }">LogIn/Register</router-link>
               </ul>
-              <div @click="toggleProfileMenu" class="profile" ref="profile">
+              <div v-if="user" @click="toggleProfileMenu" class="profile" ref="profile">
                   <span>{{ this.$store.state.profileInitials }}</span>
                   <div v-show="profileMenu" class="profile-menu">
                       <div class="info">
@@ -51,7 +51,7 @@
             <router-link class="link" :to="{name: 'Home'}">Home</router-link>
             <router-link class="link" :to="{ name: 'Blogs' }">Blogs</router-link>
             <router-link class="link" to="#">Create Post</router-link>
-            <router-link class="link" :to="{ name: 'Login' }">LogIn/Register</router-link>
+            <router-link v-if="!user" class="link" :to="{ name: 'Login' }">LogIn/Register</router-link>
             </ul>
       </transition>
   </header>
@@ -111,7 +111,12 @@ export default {
             window.location.reload();
         }
 
-    }
+    },
+    computed: {
+        user() {    
+            return this.$store.state.user;
+        }
+    },
 }
 </script>
 
