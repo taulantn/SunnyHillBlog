@@ -2,8 +2,8 @@
   <div class="form-wrap">
       <form class="register">
           <p class="login-register">
-              Already?
-              <router-link class="router-link" :to="{name: 'Register' }">Log In</router-link>
+              Already have an account?
+              <router-link class="router-link" :to="{name: 'Login' }">Log In</router-link>
           </p>
           <h2>Create Your SunnyHillBlogs Account!</h2>
           <div class="inputs">
