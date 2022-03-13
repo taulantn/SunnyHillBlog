@@ -92,7 +92,7 @@ button,
   cursor: pointer;
   margin-top: 24px;
   padding: 12px 24px;
-  background-color: #303030;
+  background-color: #620436;
   color: #fff;
   border-radius: 20px;
   border: none;
@@ -103,7 +103,7 @@ button,
   }
 
   &:hover{
-    background-color: rgba(48, 48, 48, 0.7);
+    background-color: #70083fcb;
   }
 }
 

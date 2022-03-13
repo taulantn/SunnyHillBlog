@@ -79,7 +79,7 @@ header{
         transition: .3s color ease;
 
         &:hover {
-            color:#1eb8b8;
+            color:#a614b9;
         }
     }
 
