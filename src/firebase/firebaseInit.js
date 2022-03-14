@@ -3,12 +3,12 @@ import "firebase/firestore";
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDPk0CpUBR8uikvFERRP_oJ5piRrNF1c-A",
-  authDomain: "sunnyhillblogs-2a002.firebaseapp.com",
-  projectId: "sunnyhillblogs-2a002",
-  storageBucket: "sunnyhillblogs-2a002.appspot.com",
-  messagingSenderId: "281636170919",
-  appId: "1:281636170919:web:e806c1306bdf87dec73f82"
+  apiKey: "AIzaSyC8b6pYbBDuPMNpFpxecT0m-W6aWvTcFrA",
+  authDomain: "sunnyhillblogs-fdcdd.firebaseapp.com",
+  projectId: "sunnyhillblogs-fdcdd",
+  storageBucket: "sunnyhillblogs-fdcdd.appspot.com",
+  messagingSenderId: "281499845911",
+  appId: "1:281499845911:web:1e72f20c8d90976cd42352"
 };
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
