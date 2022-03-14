@@ -10,15 +10,8 @@ npm install
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+The link of our online web:
 
-### Lints and fixes files
-```
-npm run lint
-```
+https://sunnyhillblogs-fdcdd.firebaseapp.com/
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+

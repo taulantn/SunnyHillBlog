@@ -34,9 +34,9 @@ export default {
       welcomeScreen: {
         title: "Welcome!",
         blogPost:
-          "Weekly blog articles with all things programming including HTML, CSS, Javascript and more.",
+          "Weekly blog articles with all things about Sunny Hill Festival.",
         welcomeScreen: true,
-        photo: "coding",
+        photo: "logo",
       },
       
     };
