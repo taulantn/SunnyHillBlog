@@ -1,5 +1,6 @@
 <template>
     <div class="create-post">
+        <BlogCoverPreview v-show="this.$store.state.blogPhotoPreview"/>
         <div class="container">
             <div :class="{invisible: !error}" class="err-message">
                 <p><span>Error:</span>{{ this.errorMsg }}</p>
@@ -9,22 +10,25 @@
                 <div class="upload-file">
                     <label for="blog-photo">Upload Cover Photo</label>
                     <input type="file" ref="blogPhoto" id="blog-photo" @change="fileChange" accept=".png, .jpg, .jpeg">
-                    <button class="preview" :class="{'button-inactive': !this.$store.state.blogPhotoFileURL }">Preview Photo</button>
+                    <button @click="openPreview" class="preview" :class="{'button-inactive': !this.$store.state.blogPhotoFileURL }">Preview Photo</button>
                     <span>File Chosen: {{ this.$store.state.blogPhotoName }}</span>
                 </div>
             </div>
             <div class="editor">
-                <vue-editor :editorOptions="editorSettings" v-model="blogHTML" useCustomImageHandler />
+                <vue-editor :editorOptions="editorSettings" v-model="blogHTML" useCustomImageHandler @image-added="imageHandler" />
             </div>
             <div class="blog-actions">
                 <button>Publish Blog</button>
-                <router-link class="router-button" to="#">Post Preview</router-link>
+                <router-link class="router-button" :to="{name: 'BlogPreview'}">Post Preview</router-link>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+    import BlogCoverPreview from "../components/BlogCoverPreview";
+    import firebase from "firebase/app";
+    import "firebase/storage"; 
     import Quill from "quill";
     window.Quill = Quill;
     const ImageResize = require("quill-image-resize-module").default;
@@ -43,12 +47,38 @@
                 },
             };
         },
+        components: {
+            BlogCoverPreview,
+        },
         methods: {
             fileChange() {
                 this.file = this.$refs.blogPhoto.files[0];
                 const fileName = this.file.name;
                 this.$store.commit("fileNameChange", fileName);
                 this.$store.commit("createFileURL", URL.createObjectURL(this.file));
+            },
+
+            openPreview(){
+                this.$store.commit("openPhotoPreview");
+            },
+
+            imageHandler(file, Editor, cursorLocation, resetUploader){
+                const storageRef = firebase.storage().ref();
+                const docRef = storageRef.child(`documents/blogPostPhotos/${file.name}`);
+                docRef.put(file).on(
+                    "state_changed",
+                     (snapshot)=> {
+                    console.log(snapshot);
+                    }, 
+                    (err) => {
+                    console.log(err);
+                    }, 
+                    async () => {
+                        const downloadURL = await docRef.getDownloadURL();
+                        Editor.insertEmbed(cursorLocation, "image", downloadURL);
+                        resetUploader();
+                    }
+                );
             },
         },
         computed: {
@@ -155,8 +185,9 @@
                 outline: none;
                 box-shadow: 0 1px 0 0 #303030;
             }
+        }
 
-            .upload-file{
+        .upload-file{
                 flex: 1;
                 margin-left: 16px;
                 position: relative;
@@ -164,6 +195,7 @@
 
                 input{
                     display: none;
+                    
                 }
 
                 .preview {
@@ -178,7 +210,7 @@
                 }
             }
         }
-    }
+    
 
     .editor{
         height: 60vh;
