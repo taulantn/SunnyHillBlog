@@ -113,8 +113,9 @@
                                     profileId: this.profileId,
                                     date: timestamp,
                                 });
+                                await this.$store.dispatch("getPost");
                                 this.loading = false;
-                                this.$router.push({ name: "ViewBlog" });
+                                this.$router.push({ name: "ViewBlog", params: {blogid: dataBase.id} });
                             }
                         );
                         return;
