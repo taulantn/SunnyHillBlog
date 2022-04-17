@@ -12,6 +12,7 @@
       <div class="info">
           <h4>{{post.blogTitle}}</h4>
           <h6>Posted on: {{ new Date(post.blogDate).toLocaleString("en-us", {dateStyle: "long"}) }}</h6>
+          <p class="content-preview"  v-html="post.blogHTML"></p>
           <router-link class="link" :to="{ name: 'ViewBlog', params: {blogid: this.post.blogID}}">
               View The Post <Arrow class="arrow"/>
           </router-link>
@@ -132,6 +133,15 @@ export default {
                 font-weight: 400;
                 font-size: 12px;
                 padding-bottom: 16px;
+            }
+
+            p{
+                font-size: 13px;
+                max-height: 30px;
+                width: 250px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
             
             .link{

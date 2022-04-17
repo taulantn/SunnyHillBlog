@@ -6,16 +6,16 @@
                     <router-link class="header" :to="{ name: 'Home' }">Sunny Hill</router-link>
                 <ul>
                     <li>
-                        <a href="#"><youTube class="svg-icon"/></a>
+                        <a href="https://www.youtube.com/channel/UCCcXmevFk89YhD8pElp2cDA"><youTube class="svg-icon"/></a>
                     </li>
                     <li>
-                        <a href="#"><twitter class="svg-icon"/></a>
+                        <a href="https://twitter.com/festivalsunny?lang=en"><twitter class="svg-icon"/></a>
                     </li>
                     <li>
-                        <a hrefa="#"><instagram class="svg-icon"/></a>
+                        <a href="https://www.instagram.com/sunnyhillfestival/?hl=en"><instagram class="svg-icon"/></a>
                     </li>
                     <li>
-                        <a href="a"><linkedin class="svg-icon"/></a>
+                        <a href="https://www.linkedin.com/in/taulant-nevzadi-03652a229/"><linkedin class="svg-icon"/></a>
                     </li>
                 </ul>
                 </div>
@@ -28,12 +28,22 @@
                             >Login In / Register</router-link>
                     </ul>
                 </div>
+                <div class="col-3">
+                    <h3>About Sunny Hill Festival</h3>
+                    <p>Sunny hill festival is the biggest festival organized in kosovo and based on the headliners probably the best festival in the region.
+
+International music festival of the highest standards, one that puts prishtina – kosovo on the festival map as a not-to-be-missed cultural place, in a country that loves music and knows how to have fun.
+
+We want to invite music lovers from around the world to come and experience the festival with the best lineup in southeast europe with some of the best-known performers of our modern time and enjoy the unique hospitality of our country.
+</p>
+                </div>
             </div>
             <div class="right">
-                <p>Copyright 202 All Rights Reserved</p>
+                <p>Copyright 2022 All Rights Reserved</p>
             </div>
         </div>    
   </footer>
+
 </template>
 
 <script>
@@ -64,7 +74,7 @@ export default {
 
     footer {
         margin-top: auto;
-        padding: 100px 25px;
+        padding: 70px 25px;
         background: linear-gradient(to left, #b50632, #401047);
             .container {
             display: flex;
@@ -110,10 +120,27 @@ export default {
 
             .col-1,
             .col-2 {
+                max-width: 20%;
                 gap: 32px;
                 display: flex;
                 flex: 1;
                 @media (min-width: 880px) {
+                    gap: 0;
+                }
+            }
+            .col-1{
+                max-height: 70px;
+            }
+        
+            .col-3 {
+                gap: 32px;
+                display: flex;
+                flex: 1;
+                flex-direction: column;
+                max-width: 70%;
+                width: auto;
+                @media (min-width: 880px) {
+                    text-align: center;
                     gap: 0;
                 }
             }
@@ -145,7 +172,6 @@ export default {
             .col-2 {
                 ul {
                     height: 100%;
-                    justify-content: center;
                     flex-direction: row;
                     flex-wrap: wrap;
                     @media (min-width: 800px) {
@@ -159,22 +185,31 @@ export default {
                     }
                 }
             }
+            .col-3 {
+                h3 {margin-bottom: 20px;}
+                
+            }
         }
 
         .right {
             gap: 32px;
             color: #fff;
-            align-items: center;
-            flex-direction: column;
+            max-width: 30%;
+            align-items: flex-start;
+            flex-direction: row;
             @media (min-width: 880px) {
-                align-items: flex-end;
+                align-items: flex-start;
                 gap: 0;
             }
+
+            p{
+            margin-top: auto;
+            height: 244px;
+            margin-left: 100px;
+        }
         }
 
-        p{
-            margin-top: auto;
-        }
+        
     }
 }
 
